@@ -166,6 +166,6 @@ data_ = data.reset_index()
 selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
 print(selected_id)
 
-recommendations = top_recommend(data,selected_id,k=500)
+recommendations = top_recommend(data,selected_id,k=10)
 #genre_recommendations = print_description(steam_recommend, recommendations,tfidf).sort_values('Game Rating',ascending=False)
 st.table(recommendations)
