@@ -85,7 +85,6 @@ sparse_matrix = tfidf.fit_transform(data['short_description_en_clean'])
 
 from sklearn.neighbors import NearestNeighbors
 kNN = NearestNeighbors(n_neighbors=10,  metric='cosine')
-kNN
 kNN.fit(sparse_matrix)
 
 
