@@ -37,7 +37,7 @@ warnings.filterwarnings('ignore')
 #Page Configuration
 ########################
 
-st.set_page_config(page_title="Unesco World Heritage Sites :earth_asia:", layout='wide')
+st.set_page_config(page_title="Unesco World Heritage Sites",page_icon=":earth_asia:", layout='wide')
 
 
 ##############################
