@@ -37,7 +37,7 @@ warnings.filterwarnings('ignore')
 #Page Configuration
 ########################
 
-st.set_page_config(page_title="Unesco World Heritage Sites",page_icon=":earth_asia:", layout='wide')
+st.set_page_config(page_title="Unesco World Heritage Sites",page_icon=":globe_with_meridians:", layout='wide')
 
 
 ##############################
@@ -52,7 +52,7 @@ st.image(image, caption='Image by Juliana Kozoski')
 # Introduction
 #############################
                    
-st.title("UNESCO World Heritage Sites")
+st.title("UNESCO World Heritage Sites :japanese_castle:")
 """
 A World Heritage Site is a landmark or area with legal protection by an international convention administered by the United Nations Educational, Scientific and Cultural Organization (UNESCO). World Heritage Sites are designated by UNESCO for having cultural, historical, scientific or other form of significance. The sites are judged to contain "cultural and natural heritage around the world considered to be of outstanding value to humanity".
 """
