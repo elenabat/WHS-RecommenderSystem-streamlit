@@ -11,10 +11,10 @@ pd.options.mode.chained_assignment = None
 from PIL import Image
 
 # text processing libraries
-import re
-import string
-import nltk
-from nltk.corpus import stopwords
+#import re
+#import string
+#import nltk
+#from nltk.corpus import stopwords
 
 # sklearn 
 from sklearn import model_selection
