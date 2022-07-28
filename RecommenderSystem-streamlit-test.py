@@ -159,7 +159,7 @@ def top_recommend(data,WHS_id,k):
 
 st.header("**What're the recommended WHS?**")
 
-WHS_list = data['name_en'].unique().tolist()
+WHS_list = data['name_en'].unique().tolist().sort_values('name_en',ascending=True)
 WHS_name = st.selectbox('', WHS_list)
 data_ = data.reset_index()
 selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
