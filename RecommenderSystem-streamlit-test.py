@@ -164,6 +164,7 @@ WHS_list = data['name_en'].unique().tolist()
 WHS_name = st.selectbox('', WHS_list)
 data_ = data.reset_index()
 selected_id = data_.loc[data_['name_en']  == WHS_name, 'index'].values
+print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=500)
 #genre_recommendations = print_description(steam_recommend, recommendations,tfidf).sort_values('Game Rating',ascending=False)
