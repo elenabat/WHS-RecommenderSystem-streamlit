@@ -77,10 +77,10 @@ st.header("**Type the name of the WHS you are looking for**")
 #Find some information about the World Heritage Site you like.
 #"""
 
-data_fav = data.drop(['short_description_en','short_description_en_clean'],axis=1)
+data_fav = data.drop(['short_description_en_clean'],axis=1)
 data_list_fav = data_fav.sort_values('name_en',ascending=True)
 WHS_list_fav = data_list_fav['name_en'].unique().tolist()
-WHS_options_fav = st.selectbox('', WHS_list_fav, key = data_fav.index)
+WHS_options_fav = st.selectbox('', WHS_list_fav, key = short_description_en)
 #WHS_options_fav = st.sidebar.selectbox('', WHS_list_fav)
 selected_WHS_fav = data_list_fav[data_list_fav['name_en']  == WHS_options_fav]
 st.table(selected_WHS_fav)
