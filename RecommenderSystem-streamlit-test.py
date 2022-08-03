@@ -82,7 +82,7 @@ data_list_fav = data.sort_values('name_en',ascending=True)
 WHS_list_fav = data_list_fav['name_en'].unique().tolist()
 WHS_options_fav = st.selectbox('', WHS_list_fav)
 #WHS_options_fav = st.sidebar.selectbox('', WHS_list_fav)
-selected_WHS_fav = data[data['name_en']  == WHS_options_fav]
+selected_WHS_fav = data_list_fav[data_list_fav['name_en']  == WHS_options_fav]
 #selected_game
 st.table(selected_WHS_fav)
 
