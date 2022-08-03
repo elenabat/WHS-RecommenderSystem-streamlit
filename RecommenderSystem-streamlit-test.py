@@ -72,19 +72,20 @@ data = pd.read_csv("whc-sites_recommender.csv", keep_default_na=False, )
 # Second Block
 ############################
 
-#st.header("**Type the name of the WHS you are looking for**")
+st.header("**Type the name of the WHS you are looking for**")
 
 #"""
 #Find some information about the World Heritage Site you like.
 #"""
 
-#data_list_fav = data.sort_values('name_en',ascending=True)
-#WHS_list_fav = data_list_fav['name_en'].unique().tolist()
-#WHS_options_fav = st.selectbox('', WHS_list_fav)
+data_fav = data.drop(['short_description_en','short_description_en_clean'],axis=1)
+data_list_fav = data_fav.sort_values('name_en',ascending=True)
+WHS_list_fav = data_list_fav['name_en'].unique().tolist()
+WHS_options_fav = st.selectbox('', WHS_list_fav)
 #WHS_options_fav = st.sidebar.selectbox('', WHS_list_fav)
-#selected_WHS_fav = data_list_fav[data_list_fav['name_en']  == WHS_options_fav]
-#selected_game
-#st.table(selected_WHS_fav)
+selected_WHS_fav = data_list_fav[data_list_fav['name_en']  == WHS_options_fav]
+st.table(selected_WHS_fav)
+
 
 
 ############################
