@@ -46,7 +46,7 @@ st.set_page_config(page_title="Unesco World Heritage Sites",page_icon=":globe_wi
 ##############################
 
 image = Image.open('world.jpg')
-st.image(image, caption='Image by Juliana Kozoski')
+st.image(image)#, caption='Image by Juliana Kozoski')
 
 
 #############################
@@ -71,7 +71,7 @@ data = pd.read_csv("whc-sites_recommender.csv", keep_default_na=False, )
 # Second Block
 ############################
 
-st.header("**Type the name of the WHS you are looking for**")
+st.header("**Select the name of the WHS you are looking for :mag_right:**")
 
 #"""
 #Find some information about the World Heritage Site you like.
@@ -177,7 +177,7 @@ def top_recommend(data,WHS_id,k):
 
 ########
 
-st.header("**What're the recommended WHS?**")
+st.header("**What are the recommended WHS? :airplane:**")
 
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
