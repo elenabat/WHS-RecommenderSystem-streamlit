@@ -183,7 +183,7 @@ st.header("**What are the recommended WHS? :airplane:**")
 
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
-WHS_name = st.selectbox('', WHS_list)
+WHS_name = st.multiselect('', WHS_list)
 data_ = data.reset_index()
 selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
 print(selected_id)
@@ -191,13 +191,6 @@ print(selected_id)
 recommendations = top_recommend(data,selected_id,k=10)
 #genre_recommendations = print_description(steam_recommend, recommendations,tfidf).sort_values('Game Rating',ascending=False)
 st.table(recommendations)
-
-
-icon("search")
-selected = st.text_input("", "Search...")
-button_clicked = st.button("OK")
-
-
 
 
 ############################
