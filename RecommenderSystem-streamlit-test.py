@@ -193,6 +193,9 @@ recommendations = top_recommend(data,selected_id,k=10)
 st.table(recommendations)
 
 
+icon("search")
+selected = st.text_input("", "Search...")
+button_clicked = st.button("OK")
 
 
 
