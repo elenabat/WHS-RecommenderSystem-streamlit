@@ -82,9 +82,9 @@ st.header("**Select the name of the WHS you are looking for :mag_right:**")
 data_fav = data.drop(['short_description_en_clean', 'continent', 'transboundary', 'danger'],axis=1)
 data_list_fav = data_fav.sort_values('name_en',ascending=True)
 WHS_list_fav = data_list_fav['name_en'].unique().tolist()
-#WHS_options_fav = st.selectbox('', WHS_list_fav, key = 'index')
 WHS_options_fav = st.multiselect('', WHS_list_fav, key = 'index')
 selected_WHS_fav = data_list_fav[data_list_fav['name_en'].isin(WHS_options_fav)]
+#WHS_options_fav = st.selectbox('', WHS_list_fav, key = 'index')
 #selected_WHS_fav = data_list_fav[data_list_fav['name_en']  == WHS_options_fav]
 st.table(selected_WHS_fav)
 
@@ -184,14 +184,19 @@ st.header("**What are the recommended WHS? :airplane:**")
 
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
-WHS_name = st.selectbox('', WHS_list)
+#WHS_name = st.selectbox('', WHS_list)
+WHS_name = st.multiselect('', WHS_list, key = 'index')
 data_ = data.reset_index()
-selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
+#selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
+selected_id = data_[data_['name_en'].isin(WHS_name)]
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
 #genre_recommendations = print_description(steam_recommend, recommendations,tfidf).sort_values('Game Rating',ascending=False)
 st.table(recommendations)
+
+
+
 
 
 ############################
@@ -208,6 +213,7 @@ data_country2 = data2.groupby(['country', 'continent', 'region_en', 'name_en', '
 data_country2 = data_country2.rename(columns={'index': 'count'})
 data_country2 = data_country2.sort_values(by=['count'], ascending = False).reset_index()
 data_country2 = data_country2.drop('index' , axis = 1)
+
 
 #Treemap
 fig = px.treemap(data_country2, path=['planet_earth', 'region_en', 'country', 'name_en'], values='count',
