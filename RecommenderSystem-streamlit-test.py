@@ -186,7 +186,7 @@ WHS_list = data_list['name_en'].unique().tolist()
 WHS_name = st.multiselect('', WHS_list)
 data_ = data.reset_index()
 #selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
-selected_id = data[data['name_en'].isin(WHS_name)]#.copy()
+selected_id = data_[data_['name_en'].isin(WHS_name)]#.copy()
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
