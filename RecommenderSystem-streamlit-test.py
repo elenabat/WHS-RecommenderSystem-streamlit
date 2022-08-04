@@ -206,13 +206,13 @@ st.header("Find your country on the treemap and discover new WHS")
 
 data2 = data_country
 data2['index'] = data2.index
-data_country2 = data2.groupby(['states_name_en', 'continent', 'region_en', 'name_en'])['index'].count().reset_index()
+data_country2 = data2.groupby(['country', 'continent', 'region_en', 'name_en'])['index'].count().reset_index()
 data_country2 = data_country2.rename(columns={'index': 'count'})
 data_country2 = data_country2.sort_values(by=['count'], ascending = False).reset_index()
 data_country2 = data_country2.drop('index' , axis = 1)
 
 #Treemap
-fig = px.treemap(data_country2, path=['region_en', 'states_name_en', 'name_en'], values='count',
+fig = px.treemap(data_country2, path=['region_en', 'country', 'name_en'], values='count',
                 color='region_en', hover_data=['name_en'], color_discrete_map={"world": "orange", "Europe": "#4F84C4", "North America": "#926AA6", "Latin America and the Caribbean": "#CE3175", "Africa": "#92B558", "Middle East": "#D8AE47", "Asia and the Pacific": "#47b8b8"})
 st.plotly_chart(fig)
  
