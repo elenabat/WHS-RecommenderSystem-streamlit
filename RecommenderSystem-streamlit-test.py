@@ -214,6 +214,7 @@ data_country2 = data_country2.drop('index' , axis = 1)
 #Treemap
 fig = px.treemap(data_country2, path=['region_en', 'country', 'name_en'], values='count',
                 color='region_en', hover_data=['name_en'], color_discrete_map={"world": "orange", "Europe": "#4F84C4", "North America": "#926AA6", "Latin America and the Caribbean": "#CE3175", "Africa": "#92B558", "Middle East": "#D8AE47", "Asia and the Pacific": "#47b8b8"})
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True) 
+#st.plotly_chart(fig)
  
 
