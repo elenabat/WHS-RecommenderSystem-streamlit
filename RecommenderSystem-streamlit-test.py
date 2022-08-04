@@ -205,7 +205,7 @@ st.header("Find your country on the treemap and discover new WHS")
 
 data2 = data
 data2['index'] = data2.index
-data_country2 = data2.groupby(['states_name_en', 'continent', 'region_en', 'iso_code', 'name_en'])['index'].count().reset_index()
+data_country2 = data2.groupby(['states_name_en', 'continent', 'region_en', 'name_en'])['index'].count().reset_index()
 data_country2 = data_country2.rename(columns={'index': 'count'})
 data_country2 = data_country2.sort_values(by=['count'], ascending = False).reset_index()
 data_country2 = data_country2.drop('index' , axis = 1)
