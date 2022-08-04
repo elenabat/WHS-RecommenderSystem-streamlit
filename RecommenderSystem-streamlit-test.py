@@ -189,3 +189,28 @@ print(selected_id)
 recommendations = top_recommend(data,selected_id,k=10)
 #genre_recommendations = print_description(steam_recommend, recommendations,tfidf).sort_values('Game Rating',ascending=False)
 st.table(recommendations)
+
+
+
+
+
+
+############################
+# Treemap
+############################
+
+data2 = data
+data2['index'] = data2.index
+data_country2 = data2.groupby(['states_name_en', 'continent', 'region_en', 'iso_code', 'name_en'])['index'].count().reset_index()
+data_country2 = data_country2.rename(columns={'index': 'count'})
+data_country2 = data_country2.sort_values(by=['count'], ascending = False).reset_index()
+data_country2 = data_country2.drop('index' , axis = 1)
+
+
+    st.subheader("Find your country on the treemap and discover new WHS")
+    #Treemap
+    fig = px.treemap(data_country2, path=[px.Constant("world"), 'region_en', 'states_name_en', 'name_en'], values='count',
+                color='region_en', hover_data=['iso_code'], color_discrete_map={"world": "orange", "Europe": "#4F84C4", "North America": "#926AA6", "Latin America and the Caribbean": "#CE3175", "Africa": "#92B558", "Middle East": "#D8AE47", "Asia and the Pacific": "#47b8b8"})
+    st.plotly_chart(fig)
+ 
+
