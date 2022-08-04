@@ -79,7 +79,7 @@ st.header("**Select the name of the WHS you are looking for :mag_right:**")
 #Find some information about the World Heritage Site you like.
 #"""
 
-data_fav = data.drop(['short_description_en_clean'],axis=1)
+data_fav = data.drop(['short_description_en_clean', 'continent', 'transboundary', 'danger'],axis=1)
 data_list_fav = data_fav.sort_values('name_en',ascending=True)
 WHS_list_fav = data_list_fav['name_en'].unique().tolist()
 WHS_options_fav = st.selectbox('', WHS_list_fav, key = 'index')
@@ -169,7 +169,7 @@ def top_recommend(data,WHS_id,k):
     
     #get the genre informations from the top_recommendations saved on the general dataset:
     top_recommendations = data[data.name_en.isin(top_recommendations)]
-    top_recommendations = top_recommendations.drop(['short_description_en','short_description_en_clean'],axis=1)
+    top_recommendations = top_recommendations.drop(['short_description_en','short_description_en_clean', 'continent', 'transboundary', 'danger'],axis=1)
     
     #add to this results the game we want to compare:
     #top_recommendations = pd.concat([(df[df.steam_appid == game_id]), top_recommendations])
