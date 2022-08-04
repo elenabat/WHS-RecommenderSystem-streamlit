@@ -185,10 +185,10 @@ st.header("**What are the recommended WHS? :airplane:**")
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
 #WHS_name = st.selectbox('', WHS_list)
-WHS_name = st.multiselect('', WHS_list, key = 'index')
+WHS_name = st.multiselect('', WHS_list, key = 'name_en')
 data_ = data.reset_index()
 #selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
-selected_id = data_.loc[data_['name_en'].isin(WHS_name), 'index']
+selected_id = data_.loc[data_['name_en'].isin(WHS_name), 'name_en']
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
