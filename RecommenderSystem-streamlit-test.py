@@ -66,6 +66,7 @@ A World Heritage Site is a landmark or area with legal protection by an internat
 # # Load dataset
 
 data = pd.read_csv("whc-sites_recommender.csv", keep_default_na=False, )
+data_country = pd.read_csv("whc-sites-2021_clean_countries.csv", keep_default_na=False, )
 
 
 ############################
@@ -203,7 +204,7 @@ st.table(recommendations)
 
 st.header("Find your country on the treemap and discover new WHS")
 
-data2 = data
+data2 = data_country
 data2['index'] = data2.index
 data_country2 = data2.groupby(['states_name_en', 'continent', 'region_en', 'name_en'])['index'].count().reset_index()
 data_country2 = data_country2.rename(columns={'index': 'count'})
