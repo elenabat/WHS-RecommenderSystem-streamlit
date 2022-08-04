@@ -189,7 +189,7 @@ WHS_name = st.selectbox('', WHS_list)
 data_ = data.reset_index()
 selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
 #selected_id = data_.loc[data_['name_en'].isin(WHS_name), 'index']
-selected_id = data_.loc[data_['name_en'].isin(WHS_list), 'index']
+#selected_id = data_.loc[data_['name_en'].isin(WHS_list), 'index']
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
