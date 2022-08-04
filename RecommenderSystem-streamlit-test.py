@@ -185,10 +185,10 @@ st.header("**What are the recommended WHS? :airplane:**")
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
 #WHS_name = st.selectbox('', WHS_list)
-WHS_name = st.multiselect('', WHS_list, key = 'short_description_en')
+WHS_name = st.multiselect('', WHS_list, key = 'index')
 data_ = data.reset_index()
 #selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
-selected_id = data_.loc[data_['name_en'].isin(WHS_name), 'short_description_en']
+selected_id = data_.loc[data_['name_en'].isin(WHS_name), 'index']
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
@@ -207,7 +207,7 @@ st.table(recommendations)
 st.header("Find your country on the treemap and discover new WHS :earth_asia:")
 
 data2 = data_country
-data2['index'] = data2.index
+data2['index2'] = data2.index
 data2['planet_earth'] = 'planet earth'
 data_country2 = data2.groupby(['country', 'continent', 'region_en', 'name_en', 'planet_earth'])['index'].count().reset_index()
 data_country2 = data_country2.rename(columns={'index': 'count'})
