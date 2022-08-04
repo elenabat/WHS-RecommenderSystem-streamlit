@@ -183,10 +183,9 @@ st.header("**What are the recommended WHS? :airplane:**")
 
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
-WHS_name = st.multiselect('', WHS_list)
+WHS_name = st.selectbox('', WHS_list)
 data_ = data.reset_index()
-#selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
-selected_id = data_[data_['name_en'].isin(WHS_name)]#.copy()
+selected_id = int(data_.loc[data_['name_en']  == WHS_name, 'index'])
 print(selected_id)
 
 recommendations = top_recommend(data,selected_id,k=10)
@@ -213,6 +212,5 @@ data_country2 = data_country2.drop('index' , axis = 1)
 fig = px.treemap(data_country2, path=['planet_earth', 'region_en', 'country', 'name_en'], values='count',
                 color='region_en', hover_data=['name_en'], color_discrete_map={"planet_earth": "#191970", "Europe": "#4F84C4", "North America": "#926AA6", "Latin America and the Caribbean": "#CE3175", "Africa": "#92B558", "Middle East": "#D8AE47", "Asia and the Pacific": "#47b8b8"})
 st.plotly_chart(fig, use_container_width=True) 
-#st.plotly_chart(fig)
  
 
