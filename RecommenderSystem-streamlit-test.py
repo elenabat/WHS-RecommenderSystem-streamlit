@@ -74,7 +74,7 @@ data_country = pd.read_csv("whc-sites-2021_clean_countries.csv", keep_default_na
 ############################
 
 st.header("**Select the name of the WHS you are looking for :mag_right:**")
-st.subheader("**Select one or more WHS to see the related details**")
+st.subheader("Select one or more WHS to see the related details")
 
 #"""
 #Find some information about the World Heritage Site you like.
@@ -182,7 +182,7 @@ def top_recommend(data,WHS_id,k):
 ########
 
 st.header("**What are the recommended WHS? :airplane:**")
-st.subheader("**Select a WHS to see the recommended sites based on your choice**")
+st.subheader("Select a WHS to see the recommended sites based on your choice")
 
 data_list = data.sort_values('name_en',ascending=True)
 WHS_list = data_list['name_en'].unique().tolist()
